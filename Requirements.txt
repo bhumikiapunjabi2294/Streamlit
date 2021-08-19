@@ -1,7 +1,7 @@
 requests==2.25.1
 streamlit==0.86.0
 numpy==1.19.2
-tensorflow==2.4
+tensorflow==2.6
 pandas==1.2.4
 h5py==3.3.0
 fsspec==0.7.4
