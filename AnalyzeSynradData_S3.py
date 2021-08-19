@@ -4,7 +4,7 @@ import numpy as np
 #import tensorflow as tf
 import streamlit as st
 #import boto3
-import s3fs
+#import s3fs
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
