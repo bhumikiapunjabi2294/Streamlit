@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 import numpy as np
-import tensorflow as tf
+#import tensorflow as tf
 import streamlit as st
 import boto3
 import s3fs
