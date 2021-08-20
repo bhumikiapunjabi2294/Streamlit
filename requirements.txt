@@ -1,6 +1,5 @@
 tensorflow==2.1.0
 tensorflow-estimator==2.1.0
-tensorflow-io==0.17
 matplotlib==3.2.0
 boto3==1.18.22
 botocore==1.20.106
