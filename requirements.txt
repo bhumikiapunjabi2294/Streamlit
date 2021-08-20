@@ -1,9 +1,7 @@
 tensorflow==2.1.0
-tensorflow-estimator==2.1.0
 matplotlib==3.2.0
 boto3==1.18.22
-botocore==1.20.106
-aiobotocore==1.3.3
+botocore==1.21.22
 fsspec==2021.7.0
 h5py==2.10.0
 numpy==1.19.2
