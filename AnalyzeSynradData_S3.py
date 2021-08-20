@@ -21,7 +21,7 @@ st.write("aws_access_key_id:", st.secrets["aws_access_key_id"])
 st.write("aws_secret_access_key:", st.secrets["aws_secret_access_key"])
 
 
-client = boto3.client('s3', aws_access_key_id=aws_secret_access_key, aws_secret_access_key=aws_secret_access_key)
+client = boto3.client('s3', aws_access_key_id='aws_secret_access_key', aws_secret_access_key='aws_secret_access_key')
 client._request_signer.sign = (lambda *args, **kwargs: None)
 
 s3 = boto3.resource('s3')
