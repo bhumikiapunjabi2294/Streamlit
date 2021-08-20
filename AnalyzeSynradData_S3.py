@@ -47,7 +47,7 @@ def synrad_read_data(filename, rank=0, size=1, end=None,dtype=np.float32):
     y_keys = ['vil']
     s = np.s_[rank:end:size]
     H5PY_DEFAULT_READONLY=1
-    s3 = s3fs.S3FileSystem()
+    s3 = s3fs.S3FileSystem(anon=False)
     with s3.open(filename,'rb') as s3file:
         with h5py.File(s3file, 'r') as hf:
             IN  = {k:hf[k][s].astype(np.float32) for k in x_keys}
@@ -59,7 +59,7 @@ def nowcast_read_data(filename, rank=0, size=1, end=None, dtype=np.float32, MEAN
     y_keys = ['OUT']
     s = np.s_[rank:end:size]
     H5PY_DEFAULT_READONLY=1
-    s3 = s3fs.S3FileSystem()
+    s3 = s3fs.S3FileSystem(anon=False)
     with s3.open(filename,'rb') as s3file:
         with h5py.File(s3file, 'r') as hf:
             IN  = hf['IN'][s]
