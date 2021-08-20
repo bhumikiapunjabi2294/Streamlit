@@ -24,8 +24,8 @@ st.write("aws_secret_access_key:", st.secrets["aws_secret_access_key"])
 client = boto3.client('s3', aws_access_key_id='aws_secret_access_key', aws_secret_access_key='aws_secret_access_key')
 client._request_signer.sign = (lambda *args, **kwargs: None)
 
-s3 = boto3.resource('s3')
-bucket=s3.Bucket('seviringestion')
+#s3 = boto3.resource('s3')
+#bucket=s3.Bucket('seviringestion')
 
 
 if st.checkbox('SEVIR Swagger Webapp'):
@@ -46,7 +46,6 @@ def synrad_read_data(filename, rank=0, size=1, end=None,dtype=np.float32):
     x_keys = ['ir069','ir107','lght']
     y_keys = ['vil']
     s = np.s_[rank:end:size]
-    H5PY_DEFAULT_READONLY=1
     s3 = s3fs.S3FileSystem(anon=False)
     with s3.open(filename,'rb') as s3file:
         with h5py.File(s3file, 'r') as hf:
@@ -58,7 +57,6 @@ def nowcast_read_data(filename, rank=0, size=1, end=None, dtype=np.float32, MEAN
     x_keys = ['IN']
     y_keys = ['OUT']
     s = np.s_[rank:end:size]
-    H5PY_DEFAULT_READONLY=1
     s3 = s3fs.S3FileSystem(anon=False)
     with s3.open(filename,'rb') as s3file:
         with h5py.File(s3file, 'r') as hf:
