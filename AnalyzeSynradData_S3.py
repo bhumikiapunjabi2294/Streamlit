@@ -353,17 +353,17 @@ nowcast_DATA = ('s3://'
          'seviringestion/data/nowcast_testing.h5')
          
 # Load pretrained nowcasting models
-mse_file  = '../models/nowcast/mse_model.h5'
-mse_model = tf.keras.models.load_model(mse_file,compile=False,custom_objects={"tf": tf})
+#mse_file  = '../models/nowcast/mse_model.h5'
+#mse_model = tf.keras.models.load_model(mse_file,compile=False,custom_objects={"tf": tf})
 
-style_file = '../models/nowcast/style_model.h5'
-style_model = tf.keras.models.load_model(style_file,compile=False,custom_objects={"tf": tf})
+#style_file = '../models/nowcast/style_model.h5'
+#style_model = tf.keras.models.load_model(style_file,compile=False,custom_objects={"tf": tf})
 
-mse_style_file = '../models/nowcast/mse_and_style.h5'
-mse_style_model = tf.keras.models.load_model(mse_style_file,compile=False,custom_objects={"tf": tf})
+#mse_style_file = '../models/nowcast/mse_and_style.h5'
+#mse_style_model = tf.keras.models.load_model(mse_style_file,compile=False,custom_objects={"tf": tf})
 
-gan_file = '../models/nowcast/gan_generator.h5'
-gan_model = tf.keras.models.load_model(gan_file,compile=False,custom_objects={"tf": tf})
+#gan_file = '../models/nowcast/gan_generator.h5'
+#gan_model = tf.keras.models.load_model(gan_file,compile=False,custom_objects={"tf": tf})
 
 
 ## 
