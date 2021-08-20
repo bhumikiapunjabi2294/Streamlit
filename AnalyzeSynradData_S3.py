@@ -47,10 +47,9 @@ def synrad_read_data(filename, rank=0, size=1, end=None,dtype=np.float32):
     y_keys = ['vil']
     s = np.s_[rank:end:size]
     s3 = s3fs.S3FileSystem(anon=False)
-    with s3.open(filename,'rb') as s3file:
-        with h5py.File(s3file, 'r') as hf:
-            IN  = {k:hf[k][s].astype(np.float32) for k in x_keys}
-            OUT = {k:hf[k][s].astype(np.float32) for k in y_keys}
+    with h5py.File(filename, mode='r') as hf:
+         IN  = {k:hf[k][s].astype(np.float32) for k in x_keys}
+         OUT = {k:hf[k][s].astype(np.float32) for k in y_keys}
     return IN,OUT
     
 def nowcast_read_data(filename, rank=0, size=1, end=None, dtype=np.float32, MEAN=33.44, SCALE=47.54):
@@ -58,10 +57,9 @@ def nowcast_read_data(filename, rank=0, size=1, end=None, dtype=np.float32, MEAN
     y_keys = ['OUT']
     s = np.s_[rank:end:size]
     s3 = s3fs.S3FileSystem(anon=False)
-    with s3.open(filename,'rb') as s3file:
-        with h5py.File(s3file, 'r') as hf:
-            IN  = hf['IN'][s]
-            OUT = hf['OUT'][s]
+    with h5py.File(filename, mode='r') as hf:
+        IN  = hf['IN'][s]
+        OUT = hf['OUT'][s]
     IN = (IN.astype(dtype)-MEAN)/SCALE
     OUT = (OUT.astype(dtype)-MEAN)/SCALE
     return IN,OUT
