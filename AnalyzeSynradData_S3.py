@@ -26,7 +26,7 @@ client._request_signer.sign = (lambda *args, **kwargs: None)
 
 #s3 = boto3.resource('s3')
 #bucket=s3.Bucket('seviringestion')
-
+s3 = s3fs.S3FileSystem(anon=False)
 
 if st.checkbox('SEVIR Swagger Webapp'):
     st.subheader('https://ax7ifmckyc.execute-api.us-west-2.amazonaws.com/dev/docs')
